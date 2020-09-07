@@ -7,19 +7,18 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.zerock.mapper.TimeMapper;
+import org.zerock.mapper.BoardMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:web/WEB-INF/applicationContext.xml")
 @Log4j
-public class TimeMapperTests {
+public class BoardMapperTests {
 
     @Setter(onMethod_ = @Autowired)
-    private TimeMapper timeMapper;
+    private BoardMapper mapper;
 
     @Test
-    public void testGetTime(){
-        log.info(timeMapper.getClass().getName());
-        log.info(timeMapper.getTime());
+    public void testGetList(){
+        mapper.getList().forEach(board -> log.info(board));
     }
 }
